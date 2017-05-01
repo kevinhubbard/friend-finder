@@ -4,6 +4,7 @@
 	<meta charset="utf-8">
 	<title>Survey</title>
 	<link rel="stylesheet" type="text/css" href="../../node_modules/bootstrap/dist/css/bootstrap.min.css">
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 </head>
 <body>
 <div class="container">
@@ -15,9 +16,9 @@
 		<div class="col-md-12">
 			<h3>About You</h3>
 			<h4>Name (Required)</h4>
-			<input type="text" class="form-control" name="name" placeholder="name">
+			<input type="text" class="form-control" id="name" name="name" placeholder="name">
 			<h4>Link to Photo Image (Required)</h4>
-			<input type="text" class="form-control" name="photoImage">
+			<input type="text" class="form-control" id="pic" name="photoImage">
 			<hr>
 		</div>
 		<div class="col-md-12">
@@ -27,7 +28,7 @@
 				<div class="form-group">
 					<label>Question 1</label>
 					<h6>Your mind is always buzzing with unexplored ideas and plans.</h6>
-					<select>
+					<select id="q1">
 						<option value="" disabled selected style="display: none;">Select an Option</option>
 						<option value="1">1 (Strongly Disagree)</option>
 						<option value="2">2</option>
@@ -41,7 +42,7 @@
 				<div class="form-group">
 					<label>Question 2</label>
 					<h6>Generally speaking, you rely more on your experience than your imagination.</h6>
-					<select>
+					<select id="q2">
 						<option value="" disabled selected style="display: none;">Select an Option</option>
 						<option value="1">1 (Strongly Disagree)</option>
 						<option value="2">2</option>
@@ -55,7 +56,7 @@
 				<div class="form-group">
 					<label>Question 3</label>
 					<h6>You find it easy to stay relaxed and focused even when there is some pressure.</h6>
-					<select>
+					<select id="q3">
 						<option value="" disabled selected style="display: none;">Select an Option</option>
 						<option value="1">1 (Strongly Disagree)</option>
 						<option value="2">2</option>
@@ -70,7 +71,7 @@
 				<div class="form-group">
 					<label>Question 4</label>
 					<h6>You rarely do something just out of sheer curiosity.</h6>
-					<select>
+					<select id="q4">
 						<option value="" disabled selected style="display: none;">Select an Option</option>
 						<option value="1">1 (Strongly Disagree)</option>
 						<option value="2">2</option>
@@ -84,7 +85,7 @@
 				<div class="form-group">
 					<label>Question 5</label>
 					<h6>People can rarely upset you.</h6>
-					<select>
+					<select id="q5">
 						<option value="" disabled selected style="display: none;">Select an Option</option>
 						<option value="1">1 (Strongly Disagree)</option>
 						<option value="2">2</option>
@@ -98,7 +99,7 @@
 				<div class="form-group">
 					<label>Question 6</label>
 					<h6>It is often difficult for you to relate to other people’s feelings.</h6>
-					<select>
+					<select id="q6">
 						<option value="" disabled selected style="display: none;">Select an Option</option>
 						<option value="1">1 (Strongly Disagree)</option>
 						<option value="2">2</option>
@@ -112,7 +113,7 @@
 				<div class="form-group">
 					<label>Question 7</label>
 					<h6>In a discussion, truth should be more important than people’s sensitivities.</h6>
-					<select>
+					<select id="q7">
 						<option value="" disabled selected style="display: none;">Select an Option</option>
 						<option value="1">1 (Strongly Disagree)</option>
 						<option value="2">2</option>
@@ -126,7 +127,7 @@
 				<div class="form-group">
 					<label>Question 8</label>
 					<h6>You rarely get carried away by fantasies and ideas.</h6>
-					<select>
+					<select id="q8">
 						<option value="" disabled selected style="display: none;">Select an Option</option>
 						<option value="1">1 (Strongly Disagree)</option>
 						<option value="2">2</option>
@@ -140,7 +141,7 @@
 				<div class="form-group">
 					<label>Question 9</label>
 					<h6>You think that everyone’s views should be respected regardless of whether they are supported by facts or not.</h6>
-					<select>
+					<select id="q9">
 						<option value="" disabled selected style="display: none;">Select an Option</option>
 						<option value="1">1 (Strongly Disagree)</option>
 						<option value="2">2</option>
@@ -154,7 +155,7 @@
 				<div class="form-group">
 					<label>Question 10</label>
 					<h6>You feel more energetic after spending time with a group of people.</h6>
-					<select>
+					<select id="q10">
 						<option value="" disabled selected style="display: none;">Select an Option</option>
 						<option value="1">1 (Strongly Disagree)</option>
 						<option value="2">2</option>
@@ -163,10 +164,29 @@
 						<option value="5">5 (Strongly Agree)</option>
 					</select>
 				</div>
-				<button class="btn btn-primary form-control"><span class="glyphicon glyphicon-search"></span> Submit</button><br><br>
+				<!--<button id="submit" class="btn btn-primary form-control btn-lg"><span class="glyphicon glyphicon-search"></span> Submit</button><br><br>-->
+
+				<button id="submit">submit</button>
 			</form>
 		</div>
 	</div>
 </div>
+
+
+<script type="text/javascript">
+
+
+	$('#submit').on('click', function () {
+		alert('submit button has been clicked');
+		var userInput = {
+			name: $('#name').val(),
+			pic: $('#pic').val(),
+			score: [$('#q1').val(), $('#q2').val(), $('#q3').val(), $('#q4').val(), $('#q5').val(), $('#q6').val(), $('#q7').val(), $('#q8').val(), $('#q9').val(), $('#q10').val()]
+		};
+
+		alert(userInput.name + ' ' + userInput.pic + ' ' + score[0] + score[1] + score[2] + score[3] + score[4] + score[5] + score[6] + score[7] + score[8] + score[9]);
+		console.log('somethings not right');
+	});
+</script>
 </body>
 </html>
